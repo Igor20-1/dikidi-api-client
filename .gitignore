@@ -1,0 +1,31 @@
+# Среда разработки и виртуальное окружение
+.venv/
+venv/
+env/
+
+# КРИТИЧНО: Секреты, сессии и локальные данные
+.env
+session_cookies.json
+tests/session_cookies.json
+clients_export.json
+*.db
+dump_project.py
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Артефакты сборки пакета
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Настройки IDE
+.idea/
+.vscode/
+*.swp
+
+# Системные файлы
+.DS_Store
+Thumbs.db
