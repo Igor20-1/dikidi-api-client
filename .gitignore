@@ -10,6 +10,8 @@ tests/session_cookies.json
 clients_export.json
 *.db
 dump_project.py
+project_dump.txt
+generate_readme.py
 # Кэш Python
 __pycache__/
 *.py[cod]
