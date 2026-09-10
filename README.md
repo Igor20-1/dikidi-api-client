@@ -63,9 +63,9 @@ pip install dikidi-api-client
 Создайте файл `.env` в корневом каталоге проекта:
 
 ```env
-DIKIDI_PHONE=+79001234567
+DIKIDI_PHONE=+79000000000
 DIKIDI_PASSWORD=ваш_пароль_dikidi
-DIKIDI_COMPANY=1400892
+DIKIDI_COMPANY=1400000
 ```
 
 ### 2. Инициализация и самодиагностика (Healthcheck)
@@ -98,7 +98,7 @@ from dikidi import DikidiAPI
 with DikidiAPI() as api:
     # Получение готового плоского списка свободного времени
     free_slots = api.appointments.get_free_slots(
-        master_id="4259767",
+        master_id="4123456",
         date="2026-09-15",
         duration_minutes=90,  # Длительность услуги в минутах
         step_minutes=30,      # Шаг сетки
@@ -108,9 +108,9 @@ with DikidiAPI() as api:
 
     # Или подробный диагностический отчет за день
     report = api.appointments.get_slots_report(
-        master_id="4259767",
+        master_id="4123456",
         date="2026-09-15",
-        service_id="19575651",
+        service_id="4123456",
     )
     print(f"Мастер: {report.master_name}")
     print(f"Смена: {report.shift.work_from} - {report.shift.work_to}")
@@ -128,8 +128,8 @@ from dikidi import DikidiAPI, BookingRequest
 with DikidiAPI() as api:
     # Двухфазное онлайн-бронирование (холдирование слота + сохранение)
     booking = BookingRequest(
-        master_id="4259767",
-        service_ids=["19575651"],
+        master_id="4123456",
+        service_ids=["19525641"],
         time_str="2026-09-15 14:00:00",
         client_name="Алексей Смирнов",
         client_phone="+79991234567",
@@ -187,7 +187,7 @@ from dikidi import DikidiAPI
 with DikidiAPI() as api:
     # Назначение рабочей смены с перерывом на обед
     api.schedule.set_shift(
-        master_id="4259767",
+        master_id="4123456",
         date="2026-09-20",
         work_from="10:00",
         work_to="20:00",
@@ -200,7 +200,7 @@ with DikidiAPI() as api:
 
     # Пакетное распределение расписания сразу на группу мастеров
     api.schedule.set_bulk_shifts(
-        master_ids=["4259767", "3951121"],
+        master_ids=["4123456", "4234567"],
         dates=["2026-09-22", "2026-09-23", "2026-09-24"],
         work_from="09:00",
         work_to="18:00",
